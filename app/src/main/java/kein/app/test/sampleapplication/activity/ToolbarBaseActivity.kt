@@ -24,7 +24,7 @@ open class ToolbarBaseActivity : ActionBarActivity(), IBaseListener {
     /**
      * ツールバーの実態。
      */
-    private var mToolbar: Toolbar? = null
+    var mToolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -74,6 +74,15 @@ open class ToolbarBaseActivity : ActionBarActivity(), IBaseListener {
         }
     }
 
+    /**
+     * タイトルを設定する。
+     *
+     * @param name タイトル名
+     */
+    fun setToolbarTitleName(name: String) {
+        mToolbar!!.title = name
+    }
+
     override fun onEnd() {
         // 実装する場合は継承先で実装する。
     }
@@ -93,8 +102,3 @@ open class ToolbarBaseActivity : ActionBarActivity(), IBaseListener {
         return b < 0
     }
 }
-/**
- * Toolbarを表示するViewを設定する。
-
- * @param resourceId リソースID
- */
